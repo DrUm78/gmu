@@ -1,0 +1,14 @@
+#!/bin/sh
+mkdir cross cross/funkey
+tar -xf flac-1.3.4.tar.xz && cd flac-1.3.4
+./configure --prefix=$(pwd)/../cross/funkey --host=arm-funkey-linux-musleabihf
+make install
+cd ..
+make -f Makefile.funkey
+cp -r ./decoders ./opk
+cp -r ./frontends ./opk
+cp ./gmu ./opk
+mksquashfs opk/ gmu_funkey-s.opk -all-root -no-xattrs -noappend -no-exports
+
+rm -rf decoders/ frontends/ cross/ flac-1.3.4/
+make -f Makefile.funkey clean

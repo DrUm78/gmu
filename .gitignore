@@ -1,0 +1,6 @@
+﻿*.o
+*.opk
+gmu
+cross/
+decoders/
+frontends/
