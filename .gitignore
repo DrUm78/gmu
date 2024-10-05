@@ -12,5 +12,6 @@ tmp
 config.mk
 decoders/*
 frontends/*
-gmu.bin
+gmu
 gmuc
+*.opk
