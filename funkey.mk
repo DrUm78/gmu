@@ -7,7 +7,7 @@ CFLAGS=-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -Ofast 
 LFLAGS=   -Lcross/funkey/lib -Wl,-export-dynamic
 LFLAGS_CORE=
 LIBS_CORE=
-DECODERS_TO_BUILD= decoders/mpg123.so decoders/vorbis.so decoders/flac.so
+DECODERS_TO_BUILD= decoders/mpg123.so decoders/vorbis.so decoders/flac.so decoders/mikmod.so decoders/wavpack.so
 FRONTENDS_TO_BUILD= frontends/sdl.so frontends/gmuhttp.so frontends/log.so frontends/notify.so
 TARGET=funkey
 TOOLS_TO_BUILD= gmu

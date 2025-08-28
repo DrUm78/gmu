@@ -1,11 +1,15 @@
 #!/bin/sh
-mkdir cross cross/funkey
+mkdir -p cross/funkey
 tar -xf flac-1.3.4.tar.xz && cd flac-1.3.4
+./configure --prefix=$(pwd)/../cross/funkey --host=arm-funkey-linux-musleabihf
+make install
+cd ..
+tar -xf wavpack-5.8.1.tar.bz2 && cd wavpack-5.8.1
 ./configure --prefix=$(pwd)/../cross/funkey --host=arm-funkey-linux-musleabihf
 make install
 cd ..
 make -f Makefile.funkey
 mksquashfs gmu opk/* decoders/ frontends/ themes/ gmu_funkey-s.opk -all-root -no-xattrs -noappend -no-exports
 
-rm -rf decoders/ frontends/ cross/ flac-1.3.4/
+rm -rf decoders/ frontends/ cross/ flac-1.3.4/ wavpack-5.8.1/
 make -f Makefile.funkey clean
